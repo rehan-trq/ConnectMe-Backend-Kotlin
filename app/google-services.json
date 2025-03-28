@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "306852596001",
+    "firebase_url": "https://connectme-a2b80-default-rtdb.firebaseio.com",
+    "project_id": "connectme-a2b80",
+    "storage_bucket": "connectme-a2b80.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:306852596001:android:0d27393631a47d2ba1d660",
+        "android_client_info": {
+          "package_name": "com.arshman_rehan.i222427_i220965"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9oeS85Hm2qrhJ9jBE0x1JHsvCjy6aFBI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:306852596001:android:9b339afad463d4e2a1d660",
+        "android_client_info": {
+          "package_name": "com.i220965_i222427_rehantariq_arshmankhawar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9oeS85Hm2qrhJ9jBE0x1JHsvCjy6aFBI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
