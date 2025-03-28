@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.messaging.FirebaseMessaging
 import de.hdodenhof.circleimageview.CircleImageView
 import java.util.concurrent.TimeUnit
 
@@ -359,10 +360,29 @@ class HomePage : AppCompatActivity() {
             }
             storyContainer.addView(storyView)
         }
+
+//        getFCMToken()
+
+        FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                return@addOnCompleteListener
+            }
+            val token = task.result
+            val userId = FirebaseAuth.getInstance().currentUser?.uid ?: return@addOnCompleteListener
+            val database = FirebaseDatabase.getInstance().getReference("RegisteredUsers")
+            database.child(userId).child("fcmToken").setValue(token)
+        }
     }
 
     override fun onDestroy() {
         super.onDestroy()
         handler.removeCallbacksAndMessages(null)
     }
+
+//    fun getFCMToken()
+//    {
+//        FirebaseMessaging.getInstance().getToken().addOnCompleteListener (task-> {
+//            if(task.isSuccessful()))
+//    })
+//    }
 }
