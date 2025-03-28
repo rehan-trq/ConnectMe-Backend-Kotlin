@@ -1,4 +1,4 @@
-package com.arshman_rehan.i222427_i220965
+package com.arshman_rehan.i222427_i220965   
 
 import android.content.Intent
 import android.graphics.Bitmap
@@ -88,6 +88,8 @@ class VanishingChatPage : AppCompatActivity() {
             if (text.isNotEmpty()) {
                 sendMessage(text)
                 messageInput.text.clear()
+                // Scroll to the last item in the adapter (the VanishMssg)
+                messagesRecyclerView.scrollToPosition(messageAdapter.itemCount - 1)
             }
         }
 
@@ -102,7 +104,7 @@ class VanishingChatPage : AppCompatActivity() {
                 if (e1 == null || e2 == null) return false
                 val diffY = e2.y - e1.y
                 val diffX = e2.x - e1.x
-                val swipeThreshold = 150f
+                val swipeThreshold = 250f
                 if (Math.abs(diffY) > Math.abs(diffX) && diffY > 0 && Math.abs(diffY) > swipeThreshold) {
                     val intent = Intent(this@VanishingChatPage, ChatPage::class.java)
                     intent.putExtra("recipientUid", recipientUid)
@@ -149,7 +151,8 @@ class VanishingChatPage : AppCompatActivity() {
                     message?.let { messages.add(it) }
                 }
                 messageAdapter.notifyDataSetChanged()
-                messagesRecyclerView.scrollToPosition(messages.size - 1)
+                // Scroll to the last item in the adapter (the VanishMssg)
+                messagesRecyclerView.scrollToPosition(messageAdapter.itemCount - 1)
             }
 
             override fun onCancelled(error: DatabaseError) {
