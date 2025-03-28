@@ -40,7 +40,6 @@ class DMPage : AppCompatActivity() {
         database = FirebaseDatabase.getInstance().getReference()
         val userId = auth.currentUser?.uid ?: return
 
-
         // Set up RecyclerView for chats
         val dmRecyclerView = findViewById<RecyclerView>(R.id.dmRecyclerView)
         dmRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -99,7 +98,8 @@ class DMPage : AppCompatActivity() {
 
         val back = findViewById<Button>(R.id.Back)
         back.setOnClickListener {
-            finish() // Go back to the previous activity (likely HomePage)
+            val intent = Intent(this, HomePage::class.java)
+            startActivity(intent)
         }
     }
 
